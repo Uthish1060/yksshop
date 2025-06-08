@@ -1,0 +1,53 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{% block title %}YKS Shop{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* Copy your entire <style> block from register.html here */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    /* ... rest of your CSS ... */
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    {% block content %}{% endblock %}
+  </div>
+
+  {% block scripts %}
+  <script>
+    const togglePassword1 = document.querySelector('#togglePassword1');
+    const passwordInput1 = document.querySelector('#password1');
+    if (togglePassword1) {
+      togglePassword1.addEventListener('click', function () {
+        const type = passwordInput1.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput1.setAttribute('type', type);
+        this.classList.toggle('fa-eye-slash');
+      });
+    }
+
+    const togglePassword2 = document.querySelector('#togglePassword2');
+    const passwordInput2 = document.querySelector('#password2');
+    if (togglePassword2) {
+      togglePassword2.addEventListener('click', function () {
+        const type = passwordInput2.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput2.setAttribute('type', type);
+        this.classList.toggle('fa-eye-slash');
+      });
+    }
+  </script>
+  {% endblock %}
+</body>
+</html>

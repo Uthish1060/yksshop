@@ -1,0 +1,12 @@
+{% extends 'shop/base.html' %}
+{% block title %}OTP Expired - YKS Shop{% endblock %}
+{% block content %}
+  <div class="icon-circle">
+    <i class="fa fa-clock"></i>
+  </div>
+  <h2>OTP Expired</h2>
+  <p>Your OTP has expired. Please register again to receive a new one.</p>
+  <div class="login-link">
+    <a href="{% url 'register' %}">Register Again</a>
+  </div>
+{% endblock %}

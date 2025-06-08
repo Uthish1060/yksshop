@@ -1,0 +1,12 @@
+{% extends 'shop/base.html' %}
+{% block title %}Invalid OTP - YKS Shop{% endblock %}
+{% block content %}
+  <div class="icon-circle">
+    <i class="fa fa-times-circle"></i>
+  </div>
+  <h2>OTP Verification Failed</h2>
+  <p>The OTP you entered is incorrect or has expired.</p>
+  <div class="login-link">
+    <a href="{% url 'register' %}">Try Again</a>
+  </div>
+{% endblock %}

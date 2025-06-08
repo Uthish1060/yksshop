@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OTP Verification - YKS Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 480px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px 40px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h2 {
+      color: #007bff;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+    .otp-code {
+      display: inline-block;
+      font-size: 28px;
+      letter-spacing: 6px;
+      background: #007bff;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 8px;
+      font-weight: 700;
+      user-select: all;
+    }
+    .note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Hello {{ user.first_name }},</h2>
+    <p>Your One-Time Password (OTP) for activating your YKS Shop account is:</p>
+    <div class="otp-code">{{ otp }}</div>
+    <p class="note">This OTP is valid for 5 minutes. Please do not share it with anyone.</p>
+    <p>Thank you for joining us!</p>
+  </div>
+</body>
+</html>

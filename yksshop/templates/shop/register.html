@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Register - YKS Shop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Font Awesome CDN -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+  }
+
+  .register-container {
+    background-color: #ffffff;
+    padding: 80px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    text-align: left;
+    position: relative;
+    width: 360px;
+  }
+
+  .user-icon {
+    font-size: 64px;
+    color:#007bff;
+    text-align: center;
+    margin: 0 auto 20px auto;
+    display: block;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #222;
+  }
+
+  .form-group {
+    position: relative;
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    display: none;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px 40px 10px 10px; /* padding-right for icon */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    transition: border 0.3s ease;
+    box-sizing: border-box;
+  }
+
+  input:focus {
+    border-color: #007bff;
+    background-color: #fff;
+    outline: none;
+  }
+
+  .fa-icon {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 16px;
+  }
+  .icon-circle {
+  width: 80px;
+  height: 80px;
+  background-color: #007bff; /* Blue circle */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+
+ .icon-circle i {
+  color: #fff;
+  font-size: 36px;
+ }
+
+
+  .error {
+    color: red;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+  }
+
+  button:hover {
+    background-color: #007bff;
+  }
+
+  .login-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+
+  .login-link a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+  <div class="register-container">
+    <div class="icon-circle">
+        <i class="fa fa-user-plus"></i>
+    </div>
+    <h2>Create an Account</h2>
+
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form method="post">
+      {% csrf_token %}
+      
+      <div class="form-group">
+        <input type="text" name="first_name" placeholder="First Name" required />
+        <i class="fa fa-user fa-icon"></i>
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="last_name" placeholder="Last Name" required />
+        <i class="fa fa-user fa-icon"></i>
+      </div>
+
+      <div class="form-group">
+        <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9]+" title="Only digits allowed" required />
+        <i class="fa fa-phone fa-icon"></i>
+      </div>
+
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Email" required />
+        <i class="fa fa-envelope fa-icon"></i>
+      </div>
+
+      <div class="form-group">
+        <input type="password" name="password1" placeholder="Password" required id="password1"/>
+        <i class="fa fa-lock fa-icon"></i>
+        <i class="fa fa-eye fa-icon" id="togglePassword1" style="right: 40px; cursor: pointer;"></i>
+      </div>
+
+      <div class="form-group">
+        <input type="password" name="password2" placeholder="Confirm Password" required id="password2"/>
+        <i class="fa fa-lock fa-icon"></i>
+        <i class="fa fa-eye fa-icon" id="togglePassword2" style="right: 40px; cursor: pointer;"></i>
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <div class="login-link">
+      <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </div>
+  </div>
+
+  <script>
+    const togglePassword1 = document.querySelector('#togglePassword1');
+    const passwordInput1 = document.querySelector('#password1');
+
+    togglePassword1.addEventListener('click', function () {
+      const type = passwordInput1.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput1.setAttribute('type', type);
+      this.classList.toggle('fa-eye-slash');
+    });
+
+    const togglePassword2 = document.querySelector('#togglePassword2');
+    const passwordInput2 = document.querySelector('#password2');
+
+    togglePassword2.addEventListener('click', function () {
+      const type = passwordInput2.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput2.setAttribute('type', type);
+      this.classList.toggle('fa-eye-slash');
+    });
+  </script>
+</body>
+</html>
