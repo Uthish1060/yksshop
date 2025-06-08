@@ -89,7 +89,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'yksproject.wsgi.application'
+#WSGI_APPLICATION = 'yksproject.wsgi.application'
 
 
 # Database
