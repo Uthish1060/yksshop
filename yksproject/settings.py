@@ -29,7 +29,8 @@ SECRET_KEY = 'django-insecure-pjxy9%c6f1st4%qe^v_!u-x4ce#yb5m^v_uy3m!ez!gbkbatv7
 DEBUG = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['yksshop.onrender.com', 'localhost', '127.0.0.1']
+
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
