@@ -1,1 +1,206 @@
-<h1>Welcome To My Shop</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YKS Dress Showroom</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    }
+
+    header {
+      background-color: #fff;
+      padding: 20px 40px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      color: #007bff;
+      font-size: 28px;
+      margin: 0;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: #333;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      color: #007bff;
+    }
+
+    .hero {
+      background: url('https://source.unsplash.com/1600x800/?fashion,dress') no-repeat center center/cover;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 20px;
+    }
+
+    .section {
+      padding: 60px 40px;
+      background-color: #fff;
+      text-align: center;
+    }
+
+    .section h3 {
+      font-size: 32px;
+      color: #222;
+      margin-bottom: 30px;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .product {
+      background-color: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 250px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .product h4 {
+      margin: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .product p.price {
+      color: #28a745;
+      font-weight: bold;
+      margin: 0 10px 10px;
+      font-size: 16px;
+    }
+
+    .product .cart-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      margin: 0 10px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .product .cart-btn i {
+      margin-right: 5px;
+    }
+
+    .product .cart-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>YKS Men's Wear Dresses</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="{% url 'login' %}"><i class="fa fa-user"></i> Login</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h2>Elegant Dresses for Every Occasion</h2>
+      <p>Discover the latest styles and timeless classics</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Featured Dresses</h3>
+    <div class="products">
+
+      <!-- Dress 1 -->
+      <div class="product">
+        <img src="https://source.unsplash.com/400x400/?dress,fashion" alt="Casual Dress"/>
+        <h4>Casual Collection</h4>
+        <p class="price">Rs.200.99</p>
+        <button class="cart-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+      </div>
+
+      <!-- Dress 2 -->
+      <div class="product">
+        <img src="https://source.unsplash.com/400x400/?elegant,dress" alt="Formal Dress"/>
+        <h4>Formal Collection</h4>
+        <p class="price">Rs.100.99</p>
+        <button class="cart-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+      </div>
+
+      <!-- Dress 3 -->
+      <div class="product">
+        <img src="https://source.unsplash.com/400x400/?party,dress" alt="Party Wear Dress"/>
+        <h4>Party Wear Dress</h4>
+        <p class="price">Rs.250.99</p>
+        <button class="cart-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+      </div>
+
+      <!-- Dress 4 -->
+      <div class="product">
+        <img src="https://source.unsplash.com/400x400/?wedding,dress" alt="Wedding Collection"/>
+        <h4>Wedding Collection</h4>
+        <p class="price">Rs.500.99</p>
+        <button class="cart-btn"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 YKS Dress Showroom. All rights reserved.
+  </footer>
+
+</body>
+</html>
